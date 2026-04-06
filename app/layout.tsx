@@ -14,9 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yumyarosh.by"),
-  title: "YumYarosh — кейтэрынг і гастрабоксы | Мінск",
+
+  title: "YumYarosh — кейтеринг и гастробоксы в Минске",
   description:
-    "Кейтэрынг у Мінску. Фуршэты, гастрабоксы і выязное абслугоўванне. Прафесійны кулінарны дуэт YumYarosh.",
+    "Кейтеринг в Минске: фуршеты, гастробоксы и выездное обслуживание мероприятий от YumYarosh.",
 
   applicationName: "YumYarosh",
 
@@ -55,28 +56,28 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-  title: "YumYarosh — кейтеринг в Минске",
-  description: "Фуршеты, гастробоксы и кейтеринг для мероприятий",
-  url: "https://yumyarosh.by",
-  siteName: "YumYarosh",
-  type: "website",
-  locale: "be_BY",
-  images: [
-    {
-      url: "/opengraph-image",
-      width: 1200,
-      height: 630,
-      alt: "YumYarosh — кейтеринг и гастрабоксы",
-    },
-  ],
-},
+    title: "YumYarosh — кейтеринг в Минске",
+    description: "Фуршеты, гастробоксы и кейтеринг для мероприятий",
+    url: "https://yumyarosh.by",
+    siteName: "YumYarosh",
+    type: "website",
+    locale: "be_BY",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "YumYarosh — кейтеринг и гастрабоксы",
+      },
+    ],
+  },
 
-twitter: {
-  card: "summary_large_image",
-  title: "YumYarosh — кейтеринг в Минске",
-  description: "Фуршеты и гастробоксы для мероприятий",
-  images: ["/opengraph-image"],
-},
+  twitter: {
+    card: "summary_large_image",
+    title: "YumYarosh — кейтеринг в Минске",
+    description: "Фуршеты и гастробоксы для мероприятий",
+    images: ["/og-image.jpg"],
+  },
 
   alternates: {
     canonical: "https://yumyarosh.by",
@@ -90,10 +91,10 @@ twitter: {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const organizationJsonLd = {
+}) {
+  const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "YumYarosh",
@@ -111,7 +112,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
+            __html: JSON.stringify(schema),
           }}
         />
       </body>
