@@ -17,6 +17,19 @@ export const metadata: Metadata = {
   title: "YumYarosh — кейтэрынг і гастрабоксы | Мінск",
   description:
     "Кейтэрынг у Мінску. Фуршэты, гастрабоксы і выязное абслугоўванне. Прафесійны кулінарны дуэт YumYarosh.",
+
+  applicationName: "YumYarosh",
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+
+  verification: {
+    yandex: "7c1687aa61eaefcf",
+  },
+
   keywords: [
     "кейтеринг Минск",
     "заказать кейтеринг Минск",
@@ -40,20 +53,35 @@ export const metadata: Metadata = {
     "кейтеринг Смолевичи",
     "Смолевичи",
   ],
-  verification: {
-    yandex: "7c1687aa61eaefcf",
-  },
+
   openGraph: {
-    title: "YumYarosh — кейтеринг в Минске",
-    description: "Фуршеты, гастробоксы и кейтеринг для мероприятий",
-    url: "https://yumyarosh.by",
-    siteName: "YumYarosh",
-    type: "website",
-    locale: "be_BY",
-  },
+  title: "YumYarosh — кейтеринг в Минске",
+  description: "Фуршеты, гастробоксы и кейтеринг для мероприятий",
+  url: "https://yumyarosh.by",
+  siteName: "YumYarosh",
+  type: "website",
+  locale: "be_BY",
+  images: [
+    {
+      url: "/opengraph-image",
+      width: 1200,
+      height: 630,
+      alt: "YumYarosh — кейтеринг и гастрабоксы",
+    },
+  ],
+},
+
+twitter: {
+  card: "summary_large_image",
+  title: "YumYarosh — кейтеринг в Минске",
+  description: "Фуршеты и гастробоксы для мероприятий",
+  images: ["/opengraph-image"],
+},
+
   alternates: {
     canonical: "https://yumyarosh.by",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -65,12 +93,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "YumYarosh",
+    url: "https://yumyarosh.by",
+    logo: "https://yumyarosh.by/favicon.ico",
+  };
+
   return (
     <html
       lang="be"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+      </body>
     </html>
   );
 }
