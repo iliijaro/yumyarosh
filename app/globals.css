@@ -96,8 +96,6 @@ body {
   font-size: clamp(12px, 1.2vw, 20px);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  line-height: 1.2;
-  text-align: center;
 }
 
 .hero-subtitle {
@@ -106,25 +104,6 @@ body {
   color: #f4f1eb;
   font-size: clamp(18px, 2vw, 28px);
   line-height: 1.2;
-  text-wrap: balance;
-}
-
-/* Optional unused title/tagline styles kept only if needed later */
-.hero-title {
-  position: relative;
-  z-index: 2;
-  margin: 10px 0 12px;
-  font-size: clamp(48px, 7vw, 84px);
-  line-height: 1;
-}
-
-.hero-tagline {
-  position: relative;
-  z-index: 2;
-  margin: 0 0 24px;
-  color: var(--teal);
-  font-size: clamp(18px, 2vw, 28px);
-  letter-spacing: 0.06em;
 }
 
 /* =========================
@@ -138,7 +117,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: -10px 0 0;
 }
 
 .hero-logo-glow {
@@ -146,24 +124,17 @@ body {
   width: min(520px, 70vw);
   height: min(520px, 70vw);
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(77, 217, 192, 0.22) 0%,
-    rgba(77, 217, 192, 0.1) 38%,
-    transparent 72%
-  );
+  background: radial-gradient(circle,
+      rgba(77, 217, 192, 0.22),
+      rgba(77, 217, 192, 0.1),
+      transparent);
   filter: blur(28px);
 }
 
 .hero-logo {
   width: min(58vw, 520px);
   max-height: 46svh;
-  height: auto;
-  display: block;
   object-fit: contain;
-  filter:
-    drop-shadow(0 30px 80px rgba(0, 0, 0, 0.7))
-    drop-shadow(0 0 25px rgba(77, 217, 192, 0.12));
 }
 
 /* =========================
@@ -177,10 +148,8 @@ body {
   transform: translateY(-50%);
 
   width: clamp(260px, 20vw, 320px);
-  max-width: 320px;
 
   display: grid;
-  grid-template-columns: 1fr;
   gap: 12px;
 
   padding: 18px 20px;
@@ -189,12 +158,6 @@ body {
   backdrop-filter: blur(14px);
   border: 1px solid rgba(77, 217, 192, 0.18);
   border-radius: 18px;
-
-  box-shadow:
-    0 18px 50px rgba(0, 0, 0, 0.55),
-    inset 0 0 24px rgba(77, 217, 192, 0.05);
-
-  z-index: 3;
 }
 
 .contact-row {
@@ -203,62 +166,25 @@ body {
   align-items: center;
   column-gap: 12px;
 
-  min-height: 28px;
-  width: 100%;
-
   font-size: clamp(15px, 1vw, 18px);
-  line-height: 1.35;
-  text-align: left;
 }
 
 .contact-link-row {
-  color: #4dd9c0;
+  color: var(--teal);
   text-decoration: none;
 }
 
-.contact-link-row:hover {
-  color: #7ce8d5;
-}
-
 .contact-phone-row {
-  color: #f0f0ec;
-  cursor: default;
-}
-
-.contact-phone-row:hover {
-  color: #f0f0ec;
-}
-
-.contact-link-label,
-.contact-phone-text {
-  display: block;
-  text-align: left;
+  color: var(--text);
 }
 
 .contact-icon {
   width: 20px;
   height: 20px;
-  display: block;
-  object-fit: contain;
-  justify-self: center;
-  align-self: center;
-}
-
-.contact-instagram-icon,
-.contact-menu-icon,
-.contact-phone-icon {
-  filter: none;
-}
-
-@media (min-width: 1180px) {
-  .contact-card {
-    right: clamp(80px, 9vw, 180px);
-    width: clamp(270px, 21vw, 340px);
-  }
 }
 
 /* =========================
-   FOOTER (COOKING NOTE)
+   FOOTER
 ========================= */
 
 .hero-footer {
@@ -266,11 +192,9 @@ body {
   bottom: -350px;
   left: -100%;
   transform: translateX(-50%);
-
   display: flex;
   align-items: center;
   gap: 10px;
-
   opacity: 0.85;
 }
 
@@ -308,54 +232,40 @@ body {
 }
 
 /* =========================
-   LARGE TABLET / SMALL LAPTOP
+   SEO (FIXED)
 ========================= */
 
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .contact-card {
-    left: calc(50% + min(58vw, 520px) / 2 + 28px);
-    width: clamp(240px, 19vw, 300px);
-    max-width: 300px;
-  }
+.seo-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
 
-  .hero-subtitle {
-    font-size: clamp(16px, 1.9vw, 30px);
-    max-width: 760px;
-  }
+  padding: 0 !important;
+  margin: -1px !important;
+
+  overflow: hidden !important;
+
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+
+  border: 0 !important;
+  white-space: nowrap !important;
+
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
 
 /* =========================
-   TABLET
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 1180px) {
-  .hero-logo {
-    width: min(64vw, 500px);
-    max-height: 42svh;
-  }
-
-  .hero-ring-1 {
-    width: min(78vw, 760px);
-    height: min(78vw, 760px);
-  }
-
-  .hero-ring-2 {
-    width: min(108vw, 1040px);
-    height: min(108vw, 1040px);
-  }
-
   .contact-card {
     position: static;
     transform: none;
-    width: min(92vw, 420px);
-    max-width: 420px;
     margin-top: 20px;
   }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 767px) {
   .hero-inner {
@@ -413,45 +323,42 @@ body {
     height: 18px;
   }
 
- .hero-footer {
-  bottom: -90px;
-  left: 50%;
-  transform: translateX(-50%);
-  gap: 8px;
-}
+  .hero-footer {
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 8px;
+  }
 
-.hero-footer-gif {
-  width: 40px;
-  height: 40px;
-  margin-top: 0;
-}
+  .hero-footer-gif {
+    width: 40px;
+    height: 40px;
+    margin-top: 0;
+  }
 
-.hero-footer-text {
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  width: min(70vw, 360px)
-}
-}
+  .hero-footer-text {
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    width: min(70vw, 360px)
+  }
 
-/* =========================
-   VERY SMALL PHONES
-========================= */
+  .seo-section {
+    padding: 56px 16px 72px;
+  }
+
+  .seo-title {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+
+  .seo-text {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+}
 
 @media (max-width: 390px) {
   .hero-logo {
     width: min(82vw, 300px);
-    max-height: 34svh;
-  }
-
-  .hero-subtitle {
-    font-size: 15px;
-    line-height: 1.24;
-  }
-
-  .contact-card {
-    width: 92vw;
-    max-width: 320px;
-    padding: 14px 16px;
   }
 
   .contact-row {
