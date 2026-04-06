@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   description:
   "Кейтэрынг у Мінску. Фуршэты, гастрабоксы і выязное абслугоўванне. Прафесійны кулінарны дуэт YumYarosh.",
 
+  verification: {
+  yandex: "7c1687aa61eaefcf",
+  },
+
   keywords: [
     // HIGH INTENT (most important)
     "кейтеринг Минск",
