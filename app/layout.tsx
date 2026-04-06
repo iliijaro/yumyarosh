@@ -4,65 +4,59 @@ import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://yumyarosh.by"),
   title: "YumYarosh — кейтэрынг і гастрабоксы | Мінск",
-
   description:
-  "Кейтэрынг у Мінску. Фуршэты, гастрабоксы і выязное абслугоўванне. Прафесійны кулінарны дуэт YumYarosh.",
-
-  verification: {
-  yandex: "7c1687aa61eaefcf",
-  },
-
+    "Кейтэрынг у Мінску. Фуршэты, гастрабоксы і выязное абслугоўванне. Прафесійны кулінарны дуэт YumYarosh.",
   keywords: [
-    // HIGH INTENT (most important)
     "кейтеринг Минск",
     "заказать кейтеринг Минск",
     "кейтеринг на мероприятие Минск",
     "выездной кейтеринг Минск",
-
-    // FOOD FORMAT
     "гастробоксы Минск",
     "заказать гастробокс Минск",
     "фуршет Минск",
     "фуршет на заказ Минск",
-
-    // EVENTS
     "кейтеринг на свадьбу Минск",
     "кейтеринг на корпоратив Минск",
     "кейтеринг на день рождения Минск",
-
-    // SERVICE STYLE
     "выездное обслуживание Минск",
     "еда на мероприятие Минск",
-
-    // BRAND
     "yumyarosh",
     "ямярош кейтеринг",
     "юмярош кейтеринг",
-
-
-    // EXTRA (less critical but useful)
     "catering Minsk",
     "кейтеринг Беларусь",
     "Усяж",
     "кейтеринг Смолевичи",
-    "Смолевичи"
+    "Смолевичи",
   ],
-
+  verification: {
+    yandex: "7c1687aa61eaefcf",
+  },
   openGraph: {
     title: "YumYarosh — кейтеринг в Минске",
-    description:
-      "Фуршеты, гастробоксы и кейтеринг для мероприятий",
+    description: "Фуршеты, гастробоксы и кейтеринг для мероприятий",
+    url: "https://yumyarosh.by",
+    siteName: "YumYarosh",
     type: "website",
+    locale: "be_BY",
+  },
+  alternates: {
+    canonical: "https://yumyarosh.by",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
